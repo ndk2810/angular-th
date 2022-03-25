@@ -4,6 +4,15 @@
     <div class="col-md-12">
       <app-recipes></app-recipes>
       <app-shopping-list></app-shopping-list>
+
+
+      <div class="mt-4">
+        <input type="text" [(ngModel)]="username">
+        <p>{{ username }}</p>
+        <button [disabled]="username===''" (click)="DoReset()">OK</button>
+      </div>
     </div>
+
+
   </div>
 </div>
