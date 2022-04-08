@@ -1,0 +1,8 @@
+.recipe-item-img {
+    height: 75px;
+    width: 100px;
+    padding-right: 12px;
+    top: 12%; 
+    right: 0; 
+    position: absolute;
+}

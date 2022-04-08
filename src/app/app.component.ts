@@ -7,9 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-complete';
-   username = '';
+  loadedFeature = 'recipe';
 
-   DoReset(){
-     this.username="";
-   }
+  onNavigate(feature: string) {
+    this.loadedFeature = feature;
+  }
+  username = '';
+
+  DoReset() {
+    this.username = "";
+  }
 }
