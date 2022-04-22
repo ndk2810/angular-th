@@ -1,5 +1,5 @@
-<a href="#" class="list-group-item list-group-item-action d-flex justify-
-content-between align-items-center" (click)="onSelected()">
+<a style="cursor: pointer;" [routerLink]="[index]" routerLinkActive="active"
+    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
     <div>
         <h4 class="list-group-item-heading">
             {{ recipe.name }}
@@ -9,6 +9,7 @@ content-between align-items-center" (click)="onSelected()">
         </p>
     </div>
     <span>
-        <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="recipe-item-img" />
+        <img [src]="recipe.imagePath" alt="{{ recipe.name }}" style="max-height: 75px" />
     </span>
+
 </a>
