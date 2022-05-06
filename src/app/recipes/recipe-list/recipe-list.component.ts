@@ -1,25 +1,24 @@
+import { RecipeService } from './../recipe.service';
 import { Recipe } from './../recipe.model';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  recipes: Recipe[] = [
-    new Recipe('Pizza', 'Delicious pepperoni pizza', 'https://assets.bonappetit.com/photos/5c2f8fe26558e92c8a622671/1:1/w_2700,h_2700,c_limit/bolognese-1.jpg'),
-    new Recipe('Lasagna', 'Pure italian bliss', 'https://www.hoteljob.vn/files/Anh-HTJ-Hong/lasagna-la-gi-2.jpg'),
-];
-
-  @Output() recipeWasSelected = new EventEmitter<Recipe>();
-  constructor() { }
+  recipes: Recipe[];
+  constructor(private recipeService: RecipeService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.recipes = this.recipeService.getRecipes();
   }
 
-  onRecipeSelected(recipe: Recipe) {
-    this.recipeWasSelected.emit(recipe);
+  onNewRecipe() {
+    this.router.navigate(['new'], { relativeTo: this.route });
   }
 }
