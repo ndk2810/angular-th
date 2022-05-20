@@ -34,6 +34,10 @@ export class RecipeEditComponent implements OnInit {
     this.router.navigate(['/recipes']);
   }
 
+  onDeleteIngredient(index: number) {
+    (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
+    }
+
   onAddIngredient() {
     (<FormArray>this.recipeForm.get('ingredients')).push(
       new FormGroup({
@@ -45,6 +49,10 @@ export class RecipeEditComponent implements OnInit {
       })
     );
   }
+
+  onCancel() {
+    this.router.navigate(['../'], {relativeTo: this.route});
+    }
 
   onSubmit() {
     if (this.editMode) {
